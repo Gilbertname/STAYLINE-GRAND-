@@ -99,8 +99,8 @@ function handle(path,method,v){const url=new URL(path,location.href),p=url.pathn
  if(p==='/api/portal/login'||p==='/api/portal/register'||p==='/api/portal/logout')return {csrf:'demo',ok:true};
  if(p==='/api/portal/reservations')return db.reservations.filter(r=>r.guest_id===db.memberGuestId).slice().reverse().map(guestRow);
  if(p==='/api/portal/payments')return db.payments.filter(p=>db.reservations.some(r=>r.id===p.reservation_id&&r.guest_id===db.memberGuestId)).map(payRow);
- if(p==='/api/portal/services')return overview().services.filter(s=>db.reservations.some(r=>r.id===s.reservation_id&&r.guest_id===db.memberGuestId));
- if(p==='/api/portal/requests')return db.requests.filter(s=>db.reservations.some(r=>r.id===s.reservation_id&&r.guest_id===db.memberGuestId));
+ if(p==='/api/portal/services'&&method==='GET')return overview().services.filter(s=>db.reservations.some(r=>r.id===s.reservation_id&&r.guest_id===db.memberGuestId));
+ if(p==='/api/portal/requests'&&method==='GET')return db.requests.filter(s=>db.reservations.some(r=>r.id===s.reservation_id&&r.guest_id===db.memberGuestId));
  if(p==='/api/portal/tickets'&&method==='GET')return db.tickets.filter(t=>t.guest_id===db.memberGuestId);
  if(p==='/api/portal/tickets'&&method==='POST'){db.tickets.push({...v,id:newId(db.tickets),guest_id:db.memberGuestId,reply:'',status:'open',created_at:stamp()});return {ok:true}}
  if(p==='/api/portal/profile'&&method==='PUT'){Object.assign(requireRow(db.guests,db.memberGuestId),v);return {ok:true}}
