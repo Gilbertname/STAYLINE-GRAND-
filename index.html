@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>STAYLINE GRAND｜全方位飯店管理系統</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/ops.css">
+  <script src="/demo-api.js"></script>
+  <script src="/app.js" defer></script>
+  <script src="/ops.js" defer></script>
+</head>
+<body>
+  <div id="authRoot" class="auth-shell hidden">
+    <div class="auth-art">
+      <div class="art-top"><span class="brand-symbol">✧</span> STAYLINE GRAND <span class="thin">/ HOTEL OS</span></div>
+      <div class="auth-art-copy"><span class="art-eyebrow">A BETTER WAY TO HOST</span><h1>每一次入住，<br>都值得被細心對待。</h1><p>從訂房到退房，讓每個服務環節從容有序。</p></div>
+      <div class="art-bottom">HOSPITALITY, SIMPLIFIED. <span>EST. 2026</span></div>
+    </div>
+    <div class="auth-panel"><div id="authContent" class="auth-card"></div></div>
+  </div>
+  <div id="appRoot" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand"><span class="sidebar-mark">✧</span><div><strong>STAYLINE GRAND</strong><small>HOTEL MANAGEMENT</small></div></div>
+      <div class="sidebar-group-label">工作空間 / WORKSPACE</div>
+      <nav class="sidebar-nav" aria-label="主選單">
+        <button type="button" data-page="dashboard" class="nav-link active"><span class="nav-icon">▦</span> 營運總覽</button>
+        <button type="button" data-page="reservations" class="nav-link"><span class="nav-icon">▤</span> 訂房管理</button>
+        <button type="button" data-page="rooms" class="nav-link"><span class="nav-icon">▧</span> 客房管理</button>
+        <button type="button" data-page="guests" class="nav-link"><span class="nav-icon">♙</span> 房客管理</button>
+        <button type="button" data-page="payments" class="nav-link"><span class="nav-icon">＄</span> 收款紀錄</button>
+        <button type="button" data-page="reports" class="nav-link"><span class="nav-icon">▥</span> 營運報表</button>
+        <div class="sidebar-group-label">團隊 / TEAM</div>
+        <button type="button" data-page="employees" class="nav-link"><span class="nav-icon">♙</span> 員工與權限</button>
+        <button type="button" data-page="schedules" class="nav-link"><span class="nav-icon">◷</span> 排班與請假</button>
+        <button type="button" data-page="training" class="nav-link"><span class="nav-icon">✦</span> 員工培訓</button>
+        <button type="button" data-page="payroll" class="nav-link"><span class="nav-icon">＄</span> 薪資管理</button>
+        <div class="sidebar-group-label">服務 / SERVICE</div>
+        <button type="button" data-page="services" class="nav-link"><span class="nav-icon">☷</span> 客房服務</button>
+        <button type="button" data-page="tickets" class="nav-link"><span class="nav-icon">✉</span> 顧客客服</button>
+        <button type="button" data-page="requests" class="nav-link"><span class="nav-icon">✓</span> 入住／退房申請</button>
+        <button type="button" data-page="attendance" class="nav-link"><span class="nav-icon">◉</span> 員工打卡</button>
+        <button type="button" data-page="housekeeping" class="nav-link"><span class="nav-icon">✳</span> 房務清潔</button>
+        <a class="nav-link guest-nav" href="/student-review"><span class="nav-icon">🎓</span> 學生優惠審核</a>
+        <a class="nav-link guest-nav" href="/guest" target="_blank" rel="noopener"><span class="nav-icon">↗</span> 顧客訂房網站</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="help-card"><span class="help-spark">✦</span><strong>專注每位旅客</strong><p>每一次好的服務，都從井然有序開始。</p></div><span>STAYLINE GRAND · 2026</span></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div class="topbar-left"><span class="mobile-brand">✧ STAYLINE GRAND</span><span class="topbar-label">飯店營運系統</span><span class="topbar-slash">/</span><span id="topPage">營運總覽</span></div><div class="topbar-right"><span id="todayLabel"></span><div class="topbar-separator"></div><span class="user-avatar">A</span><span id="usernameLabel">展示管理員</span><span style="color:#b58b55;font-size:11px">DEMO</span><button id="logoutBtn" class="btn-text">重設展示資料</button></div></header>
+      <main id="mainContent" class="main-content"><div class="loading">正在載入營運資料…</div></main>
+      <footer class="footer">STAYLINE HOTEL MANAGEMENT <span>GRAND · 顧客端 / 員工端 / 管理員端 · 公開作品展示（資料僅保存在此瀏覽器）</span></footer>
+    </div>
+  </div>
+  <div id="modalOverlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="編輯資料"><div class="modal"><div id="modalHeader" class="modal-header"></div><div id="modalBody"></div></div></div>
+  <div id="toastRoot" aria-live="polite"></div>
+</body>
+</html>

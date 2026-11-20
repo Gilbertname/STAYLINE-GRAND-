@@ -1,0 +1,10 @@
+"use strict";
+let token="";
+const $=s=>document.querySelector(s);
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+async function req(path,method="GET",data){const r=await fetch(path,{method,credentials:"same-origin",headers:method==="GET"?{}:{"Content-Type":"application/json","X-CSRF-Token":token},...(method==="GET"?{}:{body:JSON.stringify(data)})});const x=await r.json();if(!r.ok)throw Error(x.error||"操作失敗");return x;}
+async function refresh(){try{const me=await req("/api/me");if(me.role!=="admin")throw Error("需要管理員權限");token=me.csrf;const data=await req("/api/student-reviews");$("#items").innerHTML=data.length?data.map(r=>`<article><h3>訂單 ${esc(r.code)} · 房間 ${esc(r.room_number)}</h3><p>會員姓名：${esc(r.member_name)} ／ 學生證姓名：${esc(r.student_name)}</p><p>學校：${esc(r.school_name)} ／ 證件有效期限：${esc(r.valid_until)}</p><p>預計折扣：NT$ ${Number(r.discount_amount).toLocaleString()} ／ 狀態：${esc(r.status)}</p>${r.status==="pending"?`<button data-id="${r.reservation_id}" data-status="approved">現場確認證件後核准</button><button class="reject" data-id="${r.reservation_id}" data-status="rejected">拒絕優惠</button>`:""}</article>`).join(""):"目前沒有待處理學生申請";$("#err").textContent="";}catch(e){$("#err").textContent=e.message;$("#items").textContent="請先使用管理員帳號在主後台登入。";}}
+document.addEventListener("click",async e=>{const b=e.target.closest("button[data-status]");if(!b)return;if(!confirm("這是模擬審核，確定將測試學生申請標記為通過或拒絕嗎？"))return;try{await req("/api/student-review","POST",{reservation_id:Number(b.dataset.id),status:b.dataset.status});await refresh()}catch(x){alert(x.message)}});
+refresh();
+
+window.addEventListener("focus",()=>refresh());
