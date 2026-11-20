@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>STAYLINE GRAND｜旅客訂房與會員服務</title>
+<link rel="stylesheet" href="/guest.css"><script src="/guest.js" defer></script>
+</head>
+<body>
+<header class="site-header"><a class="brand" href="/guest"><span class="brand-star">✧</span><span>STAYLINE GRAND<small>THE ART OF STAYING</small></span></a><nav aria-label="會員導覽" id="guestNav"><button class="nav-item is-active" data-view="browse">房型與訂房</button><button class="nav-item member-only hidden" data-view="bookings">我的訂單</button><button class="nav-item member-only hidden" data-view="services">客房服務</button><button class="nav-item member-only hidden" data-view="support">協助中心</button><button class="nav-item member-only hidden" data-view="profile">會員中心</button></nav><div class="head-actions"><span id="guestWelcome"></span><button class="header-btn" id="guestAuthBtn">會員登入 / 註冊</button><a class="manager-link" href="/" title="管理員與員工後台">後台 ↗</a></div></header>
+<main><section class="masthead"><div class="mast-ambient"></div><div class="mast-inner"><p class="eyebrow">AN EXCEPTIONAL STAY BEGINS HERE</p><h1>好好停留，<br><em>才是旅行的意義。</em></h1><p class="lead">探索舒適客房、線上管理預訂，從抵達到離開都能從容享受旅程。</p><div class="mast-bottom">SINCE 2026 <span>●</span> STAYLINE GRAND HOSPITALITY</div></div><div class="mast-illustration" aria-hidden="true"><div class="sun-circle"></div><div class="hotel-shape one"></div><div class="hotel-shape two"></div><div class="hotel-shape three"></div></div></section>
+<section class="reservation-search" id="searchBox"><div><label for="searchIn">入住日期</label><input type="date" id="searchIn" required></div><div><label for="arrivalTime">預計抵達時間（15:00 後）</label><select id="arrivalTime"><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option></select></div><div><label for="searchOut">退房日期</label><input type="date" id="searchOut" required><small class="checkout-hint">退房時間：當日上午 11:00 前</small></div><div><label for="searchAdults">成人</label><select id="searchAdults"><option value="1">1 位</option><option value="2" selected>2 位</option><option value="3">3 位</option><option value="4">4 位</option></select></div><div><label for="searchChildren">兒童</label><select id="searchChildren"><option value="0">0 位</option><option value="1">1 位</option><option value="2">2 位</option><option value="3">3 位</option></select></div><button class="gold-btn" id="searchRooms">搜尋可訂客房 ↗</button></section>
+<div class="page-wrap" id="guestContent"></div>
+</main>
+<footer class="site-footer"><span>✧ STAYLINE GRAND</span><p>本機展示系統 · 模擬付款不會扣款 · 不收集真實信用卡資料</p></footer>
+<div id="guestModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-label="會員表單"><div class="modal-card"><button id="guestModalClose" class="modal-close" aria-label="關閉">×</button><div id="guestModalBody"></div></div></div>
+<div id="guestToast" aria-live="polite"></div>
+</body>
+</html>

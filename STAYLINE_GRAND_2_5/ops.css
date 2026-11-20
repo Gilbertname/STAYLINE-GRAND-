@@ -1,0 +1,17 @@
+.ops-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0}
+.ops-card{background:#fff;border:1px solid #e6edf3;border-radius:18px;padding:22px;box-shadow:0 12px 26px rgba(25,56,88,.04)}
+.ops-card h3{margin:0 0 9px;color:#20374a;font-size:15px}.ops-card strong{display:block;color:#1e4666;font-size:29px;margin:8px 0}
+.ops-card small{color:#697d91}.ops-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:5px 0 14px}
+.ops-heading h2{margin:0}.ops-row-actions{display:flex;flex-wrap:wrap;gap:8px}
+.ops-mini{border:1px solid #d7e0e8;background:#f5f8fb;border-radius:10px;padding:6px 10px;color:#28506b;font-size:12px;cursor:pointer}
+.ops-mini:hover{background:#e6f1f7}.ops-mini.primary{background:#194767;color:#fff}.ops-mini.danger{color:#a34745;background:#fff8f8}
+.ops-state{display:inline-flex;align-items:center;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;background:#eaf0f8;color:#335579}
+.ops-state.completed,.ops-state.approved,.ops-state.active,.ops-state.replied{background:#ddf5eb;color:#176647}
+.ops-state.rejected,.ops-state.inactive{background:#ffeced;color:#a33e40}
+.ops-state.in_progress,.ops-state.pending{background:#fff0d3;color:#94611a}
+.ops-note{font-size:12px;color:#70839a;line-height:1.65}.ops-info{padding:14px 18px;background:#eef6fb;border-radius:12px;color:#28536f;margin:16px 0;font-size:13px}
+.sidebar-nav .sidebar-group-label{margin:16px 14px 7px;font-size:10px;letter-spacing:.18em}.guest-nav{text-decoration:none;display:flex;align-items:center}
+@media(max-width:900px){.ops-grid{grid-template-columns:1fr}}
+@media print{.sidebar,.topbar,.footer,.header-actions{display:none!important}}
+/* Keep the longer v2 navigation inside the fixed sidebar instead of overflowing its background. */
+@media(min-width:901px){.sidebar{overflow:hidden}.sidebar-brand{margin-bottom:26px}.sidebar-nav{display:flex;flex:1;min-height:0;flex-direction:column;overflow-y:auto;overflow-x:hidden;align-content:start;padding:0 0 14px;scrollbar-width:thin;scrollbar-color:#526d83 transparent}.sidebar-nav .nav-link{flex-shrink:0;min-height:43px}.sidebar-bottom{flex-shrink:0;margin-top:12px}.help-card{padding:13px;margin-bottom:9px}.help-card p{display:none}}
